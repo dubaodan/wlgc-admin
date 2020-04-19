@@ -1,0 +1,54 @@
+create table Item(
+	item_Id integer,
+	item_Name varchar(30),
+	introduction varchar(128),
+	type integer,
+	quantity integer,
+	img varchar(128),
+	oldPrice integer,
+	newPrice integer,
+	PRIMARY KEY(item_Id)
+);
+
+create table Customer(
+	cu_Id integer,
+	cu_Name varchar(30),
+	passwword varchar(30), 
+	telephone INT,
+	PRIMARY KEY(Cu_ID)
+);
+
+
+create table Recoder(
+	cu_Id int,
+	cu_Name varchar(30),
+	item_Id int,
+	item_Name varchar(30),
+	count int,
+	buy_Date Date,
+	rating int,
+	price int,
+	PRIMARY KEY(cu_Id ,item_Id,buy_date),
+	FOREIGN KEY (cu_Id) REFERENCES Customer(cu_Id) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (item_Id) REFERENCES Item(item_Id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+	
+
+create table ShopingCart(
+	item_Id integer,
+	cu_Id integer,
+	type integer,
+	quantity integer,
+	img varchar(128),
+	price integer,
+	PRIMARY KEY(cu_Id ,item_Id),
+	FOREIGN KEY (cu_Id) REFERENCES Customer(cu_Id) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (item_Id) REFERENCES Item(item_Id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
+
+
+
+
+	
