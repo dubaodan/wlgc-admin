@@ -23,6 +23,7 @@ import java.util.HashMap;
 
 @WebServlet("/GetCustomerServlet")
 public class GetCustomerServlet extends HttpServlet {
+    private final int itemsEachPage=5;
     private static final long serialVersionUID = 1L;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -55,10 +56,13 @@ public class GetCustomerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
+            int ID = Integer.parseInt(request.getParameter("ID"));
+            int startRow=(ID-1)*itemsEachPage;
             sql q = new sql("com.mysql.cj.jdbc.Driver","jdbc:mysql://localhost:3306/wlgc?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC",
                     "root","1234");
             q.ConnectData();
-            String sql = "select * from customer";
+            String sql="select * from customer limit "+0+" , "+itemsEachPage*ID;
+            System.out.println(sql);
             ResultSet rs = q.GetResultSet(sql);
             List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
             while(rs.next()){

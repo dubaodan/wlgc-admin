@@ -27,6 +27,10 @@
             z-index:2;
             overflow: auto;
         }
+        #next{
+            display:block;
+            margin:0 auto;
+        }
     </style>
 
 </head>
@@ -47,6 +51,7 @@
     </tr>
     </thead>
 </table>
+<button id="next" class="btn-primary">加载更多</button>
         </div><!-- /.box-body -->
     </div><!-- /.box -->
 </div>

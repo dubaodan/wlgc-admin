@@ -39,10 +39,6 @@
         <servlet-class>chart1Servlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DeleteCustomerServlet</servlet-name>
-        <servlet-class>DeleteCustomerServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>GetItemServlet</servlet-name>
         <servlet-class>GetItemServlet</servlet-class>
     </servlet>
@@ -87,10 +83,6 @@
         <url-pattern>/GetCustomerServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>DeleteCustomerServlet</servlet-name>
-        <url-pattern>/DeleteCustomerServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>GetRecordServlet</servlet-name>
         <url-pattern>/GetRecordServlet</url-pattern>
     </servlet-mapping>
@@ -106,20 +98,21 @@
         <servlet-name>AdminLoginServlet</servlet-name>
         <url-pattern>/AdminLoginServlet</url-pattern>
     </servlet-mapping>
-    <filter>
-        <filter-name>LoginFilter</filter-name>
-        <filter-class>LoginFilter</filter-class>
-        <init-param>
-            <param-name>encoding</param-name>
-            <param-value>UTF-8</param-value>
-        </init-param>
-        <init-param>
-            <param-name>unCheckPaths</param-name>
-            <param-value>/loginSpecial,/AdminLoginServlet,/login.html</param-value>
-        </init-param>
-    </filter>
-    <filter-mapping>
-        <filter-name>LoginFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    <!--
+        <filter>
+            <filter-name>LoginFilter</filter-name>
+            <filter-class>LoginFilter</filter-class>
+            <init-param>
+                <param-name>encoding</param-name>
+                <param-value>UTF-8</param-value>
+            </init-param>
+            <init-param>
+                <param-name>unCheckPaths</param-name>
+                <param-value>/loginSpecial,/AdminLoginServlet,/login.html</param-value>
+            </init-param>
+        </filter>
+        <filter-mapping>
+            <filter-name>LoginFilter</filter-name>
+            <url-pattern>/*</url-pattern>
+        </filter-mapping>-->
 </web-app>

@@ -2,6 +2,7 @@
 // 编码部分：整个product_listOperation中的代码
 
 $(document).ready(function () {
+    var curPage=1;
     var currentId = 0
     //存储接收的数据库信息便于在修改时同时显示信息
     var product_arry = new Array();
@@ -55,6 +56,9 @@ $(document).ready(function () {
             url:"GetItemServlet",
             dataType:"json",
             async: false,
+            data:{
+                "ID":curPage
+            },
             success:function (resultData) {
                 var i = 0;//指定数组
                 $.each(resultData, function (index,value) {
@@ -170,4 +174,20 @@ $(document).ready(function () {
         selectProducts();
     })
 
+    $("#next").click(function () {
+        curPage+=1;
+        $("#product_list").html("<caption>出售书籍一览</caption>\n" +
+            "<thead>\n" +
+            "\t<tr>\n" +
+            "\t<th>ID</th>\n" +
+            "\t<th>名字</th>\n" +
+            "\t<th>类型</th>\n" +
+            "\t<th>数量</th>\n" +
+            "\t<th>单价(旧)</th>\n" +
+            "\t<th>单价(新)</th>\n" +
+            "\t<th>操作</th>\n" +
+            "\t</tr>\n" +
+            "</thead>");
+        selectProducts();
+    });
 });

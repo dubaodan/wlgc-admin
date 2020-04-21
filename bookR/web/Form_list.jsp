@@ -31,6 +31,10 @@
 		 li{
 			 list-style: none;
 		 }
+		#next{
+			display:block;
+			margin:0 auto;
+		}
 	</style>
 
 </head>
@@ -40,6 +44,7 @@
 <table class = "table table-hover" id = "product_list" border="1">
 
 <caption>出售书籍一览</caption>
+
 <thead>
 	<tr>
 	<th>ID</th>
@@ -54,7 +59,7 @@
 </thead>
 
 </table>
-
+<button id="next" class="btn-primary">加载更多</button>
 <%--弹出框--%>
 <div id="choiceWindow">
 	<div class="box">

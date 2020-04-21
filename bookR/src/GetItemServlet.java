@@ -20,6 +20,7 @@ import java.util.HashMap;
 @WebServlet("/GetItemServlet")
 public class GetItemServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    private final int itemsEachPage=8;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
@@ -51,10 +52,12 @@ public class GetItemServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
+            int ID = Integer.parseInt(request.getParameter("ID"));
+            int startRow=(ID-1)*itemsEachPage;
             sql q = new sql("com.mysql.cj.jdbc.Driver","jdbc:mysql://localhost:3306/wlgc?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC",
-                 "root","1234");
+                    "root","1234");
             q.ConnectData();
-            String sql = "select * from item";
+            String sql="select * from item limit "+0+" , "+itemsEachPage*ID;
             ResultSet rs = q.GetResultSet(sql);
             List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
             while(rs.next()){
@@ -67,10 +70,8 @@ public class GetItemServlet extends HttpServlet {
                 map.put("oldPrice",""+rs.getString("oldPrice"));
                 map.put("newPrice",""+rs.getString("newPrice"));
                 map.put("detail",""+rs.getString("detail"));
-                //map.put("Path",""+rs.getString("picturepath"));
                 list.add(map);
             }
-            //request.setAttribute("list", list);
             rs.close();
             q.CloseConnect();
 

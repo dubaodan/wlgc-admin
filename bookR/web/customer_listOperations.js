@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+    var curPage=1;
     var currentId = 0
     // 记录信息用于修改信息界面的信息初始化
     var customer_list = new Array();
@@ -23,6 +24,9 @@
         $.ajax({
             type:"GET",
             url:"GetCustomerServlet",
+            data:{
+                "ID":curPage
+            },
             dataType:"json",
             async: false,
             success:function (resultData) {
@@ -64,4 +68,18 @@
         });
     }
     selectCustomer();
+
+    $("#next").click(function () {
+        curPage+=1;
+        $("#customer_list").html("    <caption>顾客信息</caption>\n" +
+            "    <thead>\n" +
+            "    <tr>\n" +
+            "        <th>ID</th>\n" +
+            "        <th>昵称</th>\n" +
+            "        <th>电话</th>\n" +
+            "        <th>操作</th>\n" +
+            "    </tr>\n" +
+            "    </thead>");
+        selectCustomer();
+    });
 });

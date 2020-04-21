@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    var curPage=1;
     function selectRecord() {
         var tbody = "";
         $.ajax({
@@ -7,6 +7,9 @@ $(document).ready(function () {
             url: "GetRecordServlet",
             dataType: "json",
             async: false,
+            data:{
+                "ID":curPage
+            },
             success: function (resultData) {
 
                 $.each(resultData, function (index, value) {
@@ -27,4 +30,21 @@ $(document).ready(function () {
     }
 
     selectRecord();
+
+    $("#next").click(function () {
+        curPage+=1;
+        $("#Record_list").html("<caption>购书记录</caption>\n" +
+            "<thead>\n" +
+            "\t<tr>\n" +
+            "\t<th>用户ID</th>\n" +
+            "\t<th>用户昵称</th>\n" +
+            "\t<th>书籍ID</th>\n" +
+            "\t<th>书籍名称</th>\n" +
+            "\t<th>数量</th>\n" +
+            "\t<th>购买日期</th>\n" +
+            "\t<th>评分</th>\n" +
+            "\t</tr>\n" +
+            "</thead>");
+        selectRecord();
+    })
 });

@@ -30,6 +30,10 @@
          li{
              list-style: none;
          }
+        #next{
+            display:block;
+            margin:0 auto;
+        }
     </style>
 </head>
 <body>
@@ -47,7 +51,7 @@
     </thead>
 
 </table>
-
+<button id="next" class="btn-primary">加载更多</button>
 
 <%--弹出框--%>
 <div id="choiceWindow">
