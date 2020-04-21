@@ -1,0 +1,12 @@
+item_Id,cu_Id,name,quantity,img,price
+3,2,《dyx复仇记》,4,http://localhost:8080/MvnWeb_war/imgs/3.png,55
+4,2,《hsy的千层套路》,4,http://localhost:8080/MvnWeb_war/imgs/4.png,56
+29,2,《至高无上》,5,http://localhost:8080/MvnWeb_war/imgs/29.png,50
+30,2,《瓦莉拉》,5,http://localhost:8080/MvnWeb_war/imgs/30.png,50
+2,3,《博弈论》,4,http://localhost:8080/MvnWeb_war/imgs/2.png,77
+3,3,《dyx复仇记》,5,http://localhost:8080/MvnWeb_war/imgs/3.png,55
+22,3,《抱歉》,4,http://localhost:8080/MvnWeb_war/imgs/22.png,45
+5,4,《吸血怎么说》,4,http://localhost:8080/MvnWeb_war/imgs/5.png,34
+12,4,《弱智墨菲特》,4,http://localhost:8080/MvnWeb_war/imgs/12.png,80
+23,4,《哇哦》,4,http://localhost:8080/MvnWeb_war/imgs/23.png,70
+30,4,《瓦莉拉》,4,http://localhost:8080/MvnWeb_war/imgs/30.png,50

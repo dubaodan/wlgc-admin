@@ -1,5 +1,5 @@
 create table Item(
-	item_Id integer,
+	item_Id integer AUTO_INCREMENT PRIMARY KEY,
 	item_Name varchar(30),
 	introduction varchar(128),
 	type integer,
@@ -7,14 +7,13 @@ create table Item(
 	img varchar(128),
 	oldPrice integer,
 	newPrice integer,
-	PRIMARY KEY(item_Id)
 );
 
 create table Customer(
 	cu_Id integer,
 	cu_Name varchar(30),
 	passwword varchar(30), 
-	telephone INT,
+	telephone BIGINT,
 	PRIMARY KEY(Cu_ID)
 );
 
@@ -37,7 +36,7 @@ create table Recoder(
 create table ShopingCart(
 	item_Id integer,
 	cu_Id integer,
-	type integer,
+	name varchar(30),
 	quantity integer,
 	img varchar(128),
 	price integer,
